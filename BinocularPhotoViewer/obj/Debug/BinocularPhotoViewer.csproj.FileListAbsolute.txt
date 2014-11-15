@@ -1,0 +1,59 @@
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.exe.config
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.csprojResolveAssemblyReference.cache
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\MainWindow.baml
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\Viewer.baml
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\MainWindow.g.cs
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\Viewer.g.cs
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\App.g.cs
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer_MarkupCompile.cache
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.g.resources
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.Properties.Resources.resources
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.csproj.GenerateResource.Cache
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.exe
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.pdb
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.exe
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.pdb
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\DeepZoom.dll
+P:\Fall 2014\Research\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\ZoomableCanvas.dll
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.exe.config
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.exe
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.pdb
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.exe
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.pdb
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.csprojResolveAssemblyReference.cache
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\MainWindow.baml
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\Viewer.baml
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\MainWindow.g.cs
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\Viewer.g.cs
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\App.g.cs
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer_MarkupCompile.cache
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.g.resources
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.Properties.Resources.resources
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.csproj.GenerateResource.Cache
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.exe.config
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.exe
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.pdb
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.exe
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\BinocularPhotoViewer.pdb
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\DeepZoom.dll
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\ZoomableCanvas.dll
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.csprojResolveAssemblyReference.cache
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\MainWindow.baml
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\Viewer.baml
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\MainWindow.g.cs
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\Viewer.g.cs
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\App.g.cs
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer_MarkupCompile.cache
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.g.resources
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.Properties.Resources.resources
+C:\Users\sandrabi\Desktop\BinocularPhotoViewer\BinocularPhotoViewer\obj\Debug\BinocularPhotoViewer.csproj.GenerateResource.Cache
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\Microsoft.Xna.Framework.dll
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\SharpDX.dll
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\SharpDX.XInput.dll
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\Microsoft.Xna.Framework.xml
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\SharpDX.xml
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\SharpDX.XInput.xml
+C:\Users\Veritatis Cupitor\Google Drive\Research\Dev\BinocularPhotoViewer\BinocularPhotoViewer\bin\Debug\Microsoft.Xna.Framework.Graphics.xml

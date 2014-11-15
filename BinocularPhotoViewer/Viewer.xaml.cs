@@ -26,8 +26,6 @@ namespace BinocularPhotoViewer
         ScaleTransform xformLeft, xformRight;
         private bool slider_active=false;
 
-
-
         public Viewer()
         {
             InitializeComponent();
@@ -60,7 +58,7 @@ namespace BinocularPhotoViewer
         void _timer_Tick(object sender, EventArgs e)
         {
             //check for Xbox Controller inputs  and apply transforms accordingly
-            UpdateInput();
+            //UpdateInput();
         }
 
         #region Left Canvas
