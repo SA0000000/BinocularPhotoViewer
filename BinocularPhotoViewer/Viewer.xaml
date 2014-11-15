@@ -14,19 +14,17 @@
         </Grid.RowDefinitions>
 
         <!--Left Side-->
-        <Canvas x:Name="LeftCanvas"  Focusable="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"   Grid.Column="0" Grid.Row="0" KeyDown="leftCanvas_KeyDown" MouseDown="LeftCanvas_MouseDown" GotKeyboardFocus="LeftCanvas_GotKeyboardFocus"
-             LostKeyboardFocus="LeftCanvas_LostKeyboardFocus" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}">
+        <Canvas x:Name="LeftCanvas"  Focusable="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"   Grid.Column="0" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"> <!--KeyDown="leftCanvas_KeyDown" MouseDown="LeftCanvas_MouseDown" GotKeyboardFocus="LeftCanvas_GotKeyboardFocus"
+             LostKeyboardFocus="LeftCanvas_LostKeyboardFocus">--> 
             <Image x:Name='leftImage' Canvas.Left="10" Canvas.Top="10" Source="/t_s2.png" Grid.Row="0" Grid.Column="0" ></Image>
         </Canvas>
         
         
         <!--Right Side-->
-        <Canvas x:Name="RightCanvas"  Focusable="True" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Column="1" Grid.Row="0" KeyDown="rightCanvas_KeyDown" MouseDown="RightCanvas_MouseDown" GotKeyboardFocus="RightCanvas_GotKeyboardFocus"
-             LostKeyboardFocus="RightCanvas_LostKeyboardFocus" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}">
+        <Canvas x:Name="RightCanvas"  Focusable="True" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Column="1" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"> <!--KeyDown="rightCanvas_KeyDown" MouseDown="RightCanvas_MouseDown" GotKeyboardFocus="RightCanvas_GotKeyboardFocus"
+             LostKeyboardFocus="RightCanvas_LostKeyboardFocus">--> 
             <Image x:Name='rightImage' Canvas.Left="10" Canvas.Top="10" Source="/t_s2.png" Grid.Row="0" Grid.Column="1" ></Image>
         </Canvas>
 
-        <Slider x:Name="leftSliderZoom" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Width="210" Maximum="100" TickPlacement="BottomRight" TickFrequency="2" ValueChanged="leftSliderZoom_ValueChanged" Minimum="-10" Grid.Row="2" />
-        <Slider x:Name="rightSliderZoom" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Width="210" Maximum="100" TickPlacement="BottomRight" TickFrequency="2" ValueChanged="rightSliderZoom_ValueChanged" Minimum="-10" Grid.Row="2" Grid.Column="1" />
     </Grid>
 </Window>
