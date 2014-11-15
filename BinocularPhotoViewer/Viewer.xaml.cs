@@ -53,16 +53,14 @@ namespace BinocularPhotoViewer
             xformGroupRight.Children.Add(xformRight);
             rightImage.RenderTransform = xformGroupRight;
 
-            //KeyboardNavigation.SetDirectionalNavigation(LeftCanvas, KeyboardNavigationMode.None); //KeyboardNavigationMode.Cycle);
-            //KeyboardNavigation.SetDirectionalNavigation(RightCanvas, KeyboardNavigationMode.None); 
 
             slider_active = true;
         }
 
         void _timer_Tick(object sender, EventArgs e)
         {
-            //GamePadState currentState = Microsoft.Xna.Framework.Input.GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.One);
-            //myGamePad.DisplayControllerInformation();
+            //check for Xbox Controller inputs  and apply transforms accordingly
+            UpdateInput();
         }
 
         #region Left Canvas
