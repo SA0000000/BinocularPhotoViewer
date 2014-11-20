@@ -113,7 +113,7 @@ namespace BinocularPhotoViewer
                 if (checkImageCount())
                 {
                     //if user has added images....then launch picture viewer
-                    Viewer myViewer = new Viewer(filenames, NumTrainingImg, NumTask1Img);
+                    Viewer myViewer = new Viewer(filenames,NumTrainingImg, NumTask1Img);
                     myViewer.Show();
                 }
             }

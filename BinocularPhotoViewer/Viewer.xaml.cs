@@ -52,7 +52,10 @@ namespace BinocularPhotoViewer
         bool setImagePosition = true;
         //other variables
 
-        public Viewer(String[] filelist, int training, int task1)
+        //create an instance of Class Images to store and deal with all images
+        Images images;
+
+        public Viewer(String[] filelist,int training, int task1)
         {
             InitializeComponent();
             LeftCanvas.Visibility = Visibility.Visible;
@@ -69,12 +72,18 @@ namespace BinocularPhotoViewer
             xformGroupRight.Children.Add(xformRight);
             rightImage.RenderTransform = xformGroupRight;
 
+            
+
+            //init Images class object
+            images = new Images(filelist,training, task1);
+
+            //set first image on the canvas
+            leftImage.Source = rightImage.Source = new BitmapImage(new Uri(@"FirstImage.png", UriKind.RelativeOrAbsolute));
+
             //set timer object
             _timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
             _timer.Tick += _timer_Tick;
             _timer.Start();
-
-            //slider_active = true;
         }
 
         //poll for Xbox Controller events
@@ -244,8 +253,14 @@ namespace BinocularPhotoViewer
 
         //move to the next image
         void NextImage()
-        { 
-        
+        {
+            String uri = images.nextImage();
+            leftImage.Source = rightImage.Source = new BitmapImage(new Uri(uri, UriKind.RelativeOrAbsolute));
+            if(uri.Equals(@"LastImage.png"))
+            {
+                if (MessageBox.Show("Congratulations!! You have successfully finished the study!! :) :)","Viewer",MessageBoxButton.OK) == MessageBoxResult.OK)
+                    this.Close();
+            }
         }
     }
 }

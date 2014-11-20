@@ -39,6 +39,7 @@ namespace BinocularPhotoViewer
         protected ImageInfo[] myImageInfo;  //represents all images in one study
         private int MAX;                    //total number of images
         private int imgCount = 0;           //to keep track of current image user is viewing
+        int imgNum;
         private int TrainingImageCount;     //number of Training images
         private int TaskOneImageCount;      //number of task1 images
         private String ImageCategory;       //whether training image or task1 image
@@ -46,18 +47,20 @@ namespace BinocularPhotoViewer
         //initialize components
         public Images(String[] filelist,int training, int task1)
         {
-           myImageInfo = new ImageInfo[MAX];
+           
            //set number of images per task
            TrainingImageCount = training;
            TaskOneImageCount = task1;
-
+           imgNum = training + task1;
+           MAX = imgNum + 2;    //to include the other task separation images
            //initialize ImageInfo list
+           myImageInfo = new ImageInfo[MAX];
            init(filelist);
         }
 
         void init(String[] filelist)
         {
-            for (int i = 0, k = 0; i < MAX && k < imgCount; i++)
+            for (int i = 0, k = 0; i < MAX && k < imgNum; i++)
             {
                 if (i == 0)
                 {
@@ -69,11 +72,11 @@ namespace BinocularPhotoViewer
                     ImageCategory = "Task 1";
                     myImageInfo[i] = new ImageInfo(@"EndofTraining.png");
                 }
-                else if (i == TrainingImageCount + TaskOneImageCount+2) //+2 to account for the images that are added to indicate start and end of tasks
-                {
-                    ImageCategory = "Task 2";
-                    myImageInfo[i] = new ImageInfo(@"EndofTask1.png");
-                }
+                //else if (i == TrainingImageCount + TaskOneImageCount+2) //+2 to account for the images that are added to indicate start and end of tasks
+                //{
+                //    ImageCategory = "End";
+                //    myImageInfo[i] = new ImageInfo(@"EndofTask1.png");
+                //}
                 else
                     myImageInfo[i] = new ImageInfo(filelist[k++]);
 
@@ -121,7 +124,7 @@ namespace BinocularPhotoViewer
                 }
                 else
                 {
-                    imgCount = MAX+1;
+                   // imgCount = MAX + 2;
                     flag = end;
                 }
             }
