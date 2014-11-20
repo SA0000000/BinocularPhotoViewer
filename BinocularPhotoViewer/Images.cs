@@ -9,30 +9,28 @@ using System.Security;
 
 namespace BinocularPhotoViewer
 {
+    //the struct will be used to store per image information
+    public struct ImageInfo       
+   {
+       public String Filename;
+       public DateTime startTime;
+       public DateTime endTime;
+       public String timeTaken;       //end -start
+       public String ImageCategory;
+
+       public ImageInfo(String fname)
+       {
+           Filename = fname;
+           startTime = DateTime.Now;
+           endTime = DateTime.Now;
+           timeTaken = (endTime - startTime).ToString();
+           ImageCategory = "";
+      }
+    } ;
     class Images
     {
         public String studyNumber;
        
-        //the struct will be used to store per image information
-        public struct ImageInfo       
-        {
-            public String Filename;
-            public DateTime startTime;
-            public DateTime endTime;
-            public String timeTaken;       //end -start
-            public String ImageCategory;
-
-            public ImageInfo(String fname)
-            {
-                Filename = fname;
-                startTime = DateTime.Now;
-                endTime = DateTime.Now;
-                timeTaken = (endTime - startTime).ToString();
-                ImageCategory = "";
-            }
-
-        } ;
-
         //housekeeping flags
         private static bool start = true;
         private static bool end = false;
@@ -191,8 +189,7 @@ namespace BinocularPhotoViewer
                 sw.WriteLine(entry);
             }
             sw.Close();
+        }//end of function
+    } //end of class
 
-        }
-        }
-    }
-}
+}  //end of namespace

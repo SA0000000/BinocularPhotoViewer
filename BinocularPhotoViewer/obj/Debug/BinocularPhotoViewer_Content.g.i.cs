@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("j_s1_0.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("endoftask1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("endoftraining.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("firstimage.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("startoftraining.png")]
 
 

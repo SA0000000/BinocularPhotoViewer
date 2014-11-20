@@ -107,15 +107,19 @@ namespace BinocularPhotoViewer
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             //check number of training images and task 1 images and make sure they are within correct limits
-            
+
             if (ImageNum > 0)
             {
-                if(checkImageCount())
+                if (checkImageCount())
                 {
                     //if user has added images....then launch picture viewer
-                    Viewer myViewer = new Viewer(filenames,NumTrainingImg,NumTask1Img);
+                    Viewer myViewer = new Viewer(filenames, NumTrainingImg, NumTask1Img);
                     myViewer.Show();
                 }
+            }
+            else
+            {
+                MessageBox.Show("No Images!!!");
             }
         }
 

@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Images.cs" />
     <Compile Include="Viewer.xaml.cs">
       <DependentUpon>Viewer.xaml</DependentUpon>
     </Compile>
@@ -122,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="j_s1_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EndofTask1.png" />
+    <Resource Include="EndofTraining.png" />
+    <Resource Include="FirstImage.png" />
+    <Resource Include="StartofTraining.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SharpDX.2.6.2\build\SharpDX.targets" Condition="Exists('..\packages\SharpDX.2.6.2\build\SharpDX.targets')" />
