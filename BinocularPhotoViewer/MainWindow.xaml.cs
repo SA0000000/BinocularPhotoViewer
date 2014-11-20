@@ -22,124 +22,122 @@ namespace BinocularPhotoViewer
         private static int ImageNum = 0;
         private const int MAX = 18;
         private static String[] filenames;   //= new String[12];
-        Image[] myPictureBoxes;
         OpenFileDialog openFileDialog = new OpenFileDialog();
-        WrapPanel myWrapPanel;
-        
-
-
+        private int NumTrainingImg = 0;
+        private int NumTask1Img = 0;
+       
         public MainWindow()
         {
             InitializeComponent();
             filenames = new String[MAX];
-            myPictureBoxes = new Image[MAX];
-            myWrapPanel = new WrapPanel();
-            myWrapPanel.Orientation = Orientation.Horizontal;
-            myWrapPanel.HorizontalAlignment = HorizontalAlignment.Left;
-            myWrapPanel.VerticalAlignment = VerticalAlignment.Top;
+            //set properties for the file dialog
+            initFileDialog();
+         }
+
+        //set properties for the file dialog to enable selecting multiple files from disk
+        void initFileDialog()
+        {
+            this.openFileDialog.Filter = "Images (*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG|" +
+                                           "All files (*.*)|*.*";
+            //allow user to select multiple images
+            this.openFileDialog.Multiselect = true;
+            this.openFileDialog.Title = "Binocular AR Image Select...";
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            #region Add images
 
-            if (ImageNum < MAX)       //if maximum number of images have not been added
+        //select images from the file system and add them to the viewer
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //add images only if the max limit hasn't been reached
+            if (ImageNum < MAX)
             {
                 //Open the dialog box and if user selected image add it to my list of images
                 if (openFileDialog.ShowDialog() == true)
                 {
                     ////Read the files
-                    // flowLayoutPanel.SuspendLayout();
                     foreach (String file in openFileDialog.FileNames)
                     {
-                        //Create an image and add it to the table layout
+                        //add the images and an associated image number to a structure for later use
+                        //also show the images that have been added on the form--in a list
                         try
                         {
-                           
+                            filenames[ImageNum] = file;
+                            imgList.Items.Add(filenames[ImageNum]);
                             ImageNum++;
 
+                            //make sure less than MAX images are selected
+                            if (ImageNum == MAX)
+                            {
+                                MessageBox.Show("Too many images added!! No more room!");
+                                break; 
+                            }
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Oops! " + ex.Message);
                         }
                     }   //end of foreach loop
-                    //flowLayoutPanel.ResumeLayout();
                 }
             }
-            else       //when maximum number of images have been added
+            else
             {
-                MessageBox.Show("No more room for images!!!");
+                MessageBox.Show("Too many images added!! No more room!");
             }
-            #endregion
-
+   
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        //to clear all 
+        private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            // Clear the picture.
-            for (int k = 0; k < ImageNum - 1; k++)
-                myPictureBoxes[k].Source = null;
-
+            //reset number of images to zero and clear everything on the form
             ImageNum = 0;
-            txtNumImages.Text = "";
-            //myWrapPanel.Controls.Clear();
-
+            txtNumTrainingImages.Text = "";
+            txtNumTask1Images.Text = "";
+            imgList.Items.Clear();
+            int i = 0;
+            while (i < MAX)
+            {
+                filenames[i] = "";
+                i++;
+            }
+            
         }
 
-        //to make image fit into the thumbnail
-        //static Image FixedSize(Image imgPhoto, int Width, int Height)
-        //{
-        //    int sourceWidth = imgPhoto.Width;
-        //    int sourceHeight = imgPhoto.Height;
-        //    int sourceX = 0;
-        //    int sourceY = 0;
-        //    int destX = 0;
-        //    int destY = 0;
-
-        //    float nPercent = 0;
-        //    float nPercentW = 0;
-        //    float nPercentH = 0;
-
-        //    nPercentW = ((float)Width / (float)sourceWidth);
-        //    nPercentH = ((float)Height / (float)sourceHeight);
-        //    if (nPercentH < nPercentW)
-        //    {
-        //        nPercent = nPercentH;
-        //        destX = System.Convert.ToInt16((Width -
-        //                      (sourceWidth * nPercent)) / 2);
-        //    }
-        //    else
-        //    {
-        //        nPercent = nPercentW;
-        //        destY = System.Convert.ToInt16((Height -
-        //                      (sourceHeight * nPercent)) / 2);
-        //    }
-
-        //    int destWidth = (int)(sourceWidth * nPercent);
-        //    int destHeight = (int)(sourceHeight * nPercent);
-
-        //    Bitmap bmPhoto = new Bitmap(Width, Height, PixelFormat.Format24bppRgb);
-        //    bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
-        //                     imgPhoto.VerticalResolution);
-
-        //    Graphics grPhoto = Graphics.FromImage(bmPhoto);
-        //    grPhoto.Clear(Color.Black);
-        //    grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
-
-        //    grPhoto.DrawImage(imgPhoto,
-        //        new Rectangle(destX, destY, destWidth, destHeight),
-        //        new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-        //        GraphicsUnit.Pixel);
-
-        //    grPhoto.Dispose();
-        //    return bmPhoto;
-        //}
-
+        //when user wants to start the picture viewer
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            Viewer myViewer = new Viewer();
-            myViewer.Show();
+            //check number of training images and task 1 images and make sure they are within correct limits
+            
+            if (ImageNum > 0)
+            {
+                if(checkImageCount())
+                {
+                    //if user has added images....then launch picture viewer
+                    Viewer myViewer = new Viewer(filenames,NumTrainingImg,NumTask1Img);
+                    myViewer.Show();
+                }
+            }
+        }
+
+        //make sure the user entered the number of images for traning and task modules correctly
+        bool checkImageCount()
+        {
+            bool flag = false;
+            if (String.IsNullOrEmpty(txtNumTrainingImages.Text.Trim()))
+                MessageBox.Show("You forgot to Add the Number of Training Images!!!You forgot to Add the Study Number!!!");
+            else if (String.IsNullOrEmpty(txtNumTask1Images.Text.Trim()))
+                MessageBox.Show("You forgot to Add the Study Number!!!");
+            else if (Int32.Parse(txtNumTrainingImages.Text) < 1 || Int32.Parse(txtNumTrainingImages.Text) > 7)
+                MessageBox.Show("Max of 7 training images allowed!!!");
+            else if (Int32.Parse(txtNumTask1Images.Text) < 1 || Int32.Parse(txtNumTask1Images.Text) > 18)
+                MessageBox.Show("Enter a number between 1 and 11 for number of images in Task 1!!!");
+            else
+            {
+                NumTask1Img = Int32.Parse(txtNumTask1Images.Text);
+                NumTrainingImg = Int32.Parse(txtNumTrainingImages.Text);
+                flag = true;
+            }
+            return flag;
         }
     }
 }

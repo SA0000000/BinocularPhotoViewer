@@ -18,9 +18,6 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BinocularPhotoViewer
 {
-    /// <summary>
-    /// Interaction logic for Viewer.xaml
-    /// </summary>
     public partial class Viewer : Window
     {
         DispatcherTimer _timer = new DispatcherTimer();     //to poll for Xbox controller events
@@ -55,7 +52,7 @@ namespace BinocularPhotoViewer
         bool setImagePosition = true;
         //other variables
 
-        public Viewer()
+        public Viewer(String[] filelist, int training, int task1)
         {
             InitializeComponent();
             LeftCanvas.Visibility = Visibility.Visible;
@@ -80,6 +77,7 @@ namespace BinocularPhotoViewer
             //slider_active = true;
         }
 
+        //poll for Xbox Controller events
         void _timer_Tick(object sender, EventArgs e)
         {
             //check for Xbox Controller inputs  and set flags
@@ -87,6 +85,7 @@ namespace BinocularPhotoViewer
             UpdatePosition();
         }
 
+        //check for Xbox Controller State and take actions accordingly
         void UpdateInput()
         {
             GamePadState currentState = GamePad.GetState(PlayerIndex.One);
@@ -148,12 +147,14 @@ namespace BinocularPhotoViewer
                 if (currentState.Buttons.A == ButtonState.Pressed)
                 {
                    //save state and move to the next image
+                    NextImage();
                 }
             }
             
             lastGamePadState = currentState;
         }
 
+        //update position of the image on the canvas based on Xbox controller state
         void UpdatePosition()
         {
             //update position of left image
@@ -186,6 +187,7 @@ namespace BinocularPhotoViewer
             }
         }
 
+        //move the image in 2D
         void moveImage(double LeftPos, double topPos,Image image)
         {
             if (move == (int)Direction.left)
@@ -219,6 +221,7 @@ namespace BinocularPhotoViewer
             move = 0;
         }
 
+        //make image larger or smaller
         void zoomImage(double LeftPos, double topPos, Image image)
         { 
             TransformGroup transformGroup = (TransformGroup)image.RenderTransform;
@@ -239,5 +242,10 @@ namespace BinocularPhotoViewer
             zoom = 0;
         }
 
+        //move to the next image
+        void NextImage()
+        { 
+        
+        }
     }
 }
