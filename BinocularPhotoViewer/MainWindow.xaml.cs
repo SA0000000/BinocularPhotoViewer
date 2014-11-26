@@ -113,7 +113,7 @@ namespace BinocularPhotoViewer
                 if (checkImageCount())
                 {
                     //if user has added images....then launch picture viewer
-                    Viewer myViewer = new Viewer(filenames,NumTrainingImg, NumTask1Img);
+                    Viewer myViewer = new Viewer(txtStudyNum.Text.Trim(),filenames,NumTrainingImg, NumTask1Img);
                     myViewer.Show();
                 }
             }
@@ -140,6 +140,12 @@ namespace BinocularPhotoViewer
                 NumTask1Img = Int32.Parse(txtNumTask1Images.Text);
                 NumTrainingImg = Int32.Parse(txtNumTrainingImages.Text);
                 flag = true;
+            }
+            //check to make sure user entered the study number
+            if (String.IsNullOrEmpty(txtStudyNum.Text.Trim()))
+            {
+                flag = false;
+                MessageBox.Show("Enter Study Number!!");
             }
             return flag;
         }

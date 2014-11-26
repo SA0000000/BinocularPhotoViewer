@@ -45,14 +45,17 @@ namespace BinocularPhotoViewer
         private String ImageCategory;       //whether training image or task1 image
         
         //initialize components
-        public Images(String[] filelist,int training, int task1)
+        public Images(String s_num, String[] filelist,int training, int task1)
         {
-           
+           //set the study number
+           studyNumber = s_num;
+
            //set number of images per task
            TrainingImageCount = training;
            TaskOneImageCount = task1;
            imgNum = training + task1;
            MAX = imgNum + 2;    //to include the other task separation images
+
            //initialize ImageInfo list
            myImageInfo = new ImageInfo[MAX];
            init(filelist);

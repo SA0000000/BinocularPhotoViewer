@@ -45,17 +45,18 @@ namespace BinocularPhotoViewer
         //For zooming
         enum Zoom : int { zoomIn = 1, zoomOut = -1 };
         int zoom = 0;
-        float zoomValue = 0.1f;
+        float zoomValue = 0.05f;
 
         //create variables that will store where the user set the first image and 
         //then will be used to display the other images at the same spatial window coordinates and state
-        bool setImagePosition = true;
-        //other variables
+        bool setImagePosition = false;
+        double leftImg_leftPos, leftImg_topPos, rightImg_leftPos, rightImg_topPos;
+        double []img_zoomVal = new double[2];
 
         //create an instance of Class Images to store and deal with all images
         Images images;
 
-        public Viewer(String[] filelist,int training, int task1)
+        public Viewer(String studynum, String[] filelist,int training, int task1)
         {
             InitializeComponent();
             LeftCanvas.Visibility = Visibility.Visible;
@@ -72,10 +73,13 @@ namespace BinocularPhotoViewer
             xformGroupRight.Children.Add(xformRight);
             rightImage.RenderTransform = xformGroupRight;
 
-            
-
+            //set initial zoom values for images
+            //image
+            img_zoomVal[0] = xformLeft.ScaleX + 0.15f * (-1);
+            img_zoomVal[1] = xformLeft.ScaleY + 0.15f * (-1);
+           
             //init Images class object
-            images = new Images(filelist,training, task1);
+            images = new Images(studynum,filelist,training, task1);
 
             //set first image on the canvas
             leftImage.Source = rightImage.Source = new BitmapImage(new Uri(@"FirstImage.png", UriKind.RelativeOrAbsolute));
@@ -179,6 +183,11 @@ namespace BinocularPhotoViewer
                 {
                     zoomImage(LeftPos, topPos, leftImage);
                 }
+
+                //store the values where the left image should be drawn and what their zoom value should be
+                //so that all other subsequent images with the same values
+                leftImg_leftPos = LeftPos;
+                leftImg_topPos = topPos;
             }
             //update position of right image
             else if (imageSelected == (int)SelectedImage.right)
@@ -193,7 +202,13 @@ namespace BinocularPhotoViewer
                 {
                     zoomImage(LeftPos, topPos, rightImage);
                 }
+
+                //store the values where the left image should be drawn and what their zoom value should be
+                //so that all other subsequent images with the same values
+                rightImg_leftPos = LeftPos;
+                rightImg_topPos = topPos;
             }
+
         }
 
         //move the image in 2D
@@ -242,9 +257,12 @@ namespace BinocularPhotoViewer
             {
                 transform.ScaleX += zoomValue * zoom;
                 transform.ScaleY += zoomValue * zoom;
+                img_zoomVal[0] = transform.ScaleX;
+                img_zoomVal[1] = transform.ScaleY;
             }
             
-            move = -1;
+            //after zooming make sure the top left corner of the image doesn't change
+            move = -1; 
             moveImage(LeftPos, topPos, image);
 
             //reset zoom to 0
@@ -256,6 +274,18 @@ namespace BinocularPhotoViewer
         {
             String uri = images.nextImage();
             leftImage.Source = rightImage.Source = new BitmapImage(new Uri(uri, UriKind.RelativeOrAbsolute));
+            
+            //draw the image at the place where the user last set the location to
+            moveImage(leftImg_leftPos, leftImg_topPos, leftImage);
+            moveImage(rightImg_leftPos, rightImg_topPos, rightImage);
+
+            //set default zoom values for images
+            //left image
+            xformLeft.ScaleX = xformRight.ScaleX = img_zoomVal[0];
+            xformLeft.ScaleY = xformRight.ScaleY = img_zoomVal[1];          
+
+            //check if the user has reached the last image 
+            //if yes then inform them they are done
             if(uri.Equals(@"LastImage.png"))
             {
                 if (MessageBox.Show("Congratulations!! You have successfully finished the study!! :) :)","Viewer",MessageBoxButton.OK) == MessageBoxResult.OK)
