@@ -7,11 +7,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
+        
 
         <!--Left Side-->
         <Canvas x:Name="LeftCanvas"  Focusable="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"   Grid.Column="0" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"> <!--KeyDown="leftCanvas_KeyDown" MouseDown="LeftCanvas_MouseDown" GotKeyboardFocus="LeftCanvas_GotKeyboardFocus"
