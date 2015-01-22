@@ -193,7 +193,7 @@ namespace BinocularPhotoViewer
 
             StreamWriter sw = new StreamWriter(dir + "\\VC_Study_" + studyNumber + ".txt");
             String entry;
-            sw.WriteLine("Image filename\t\t\t\t\t\t\tImage Category\tStart Time\t\tEnd Time\t\tTotal Time\n");
+            sw.WriteLine("Image filename\\tImage Category\\tStart Time\\t\\End Time\\t\\Total Time\\n");
 
             //write all the entries for this study set
             for (int i = 0; i < MAX; i++)
