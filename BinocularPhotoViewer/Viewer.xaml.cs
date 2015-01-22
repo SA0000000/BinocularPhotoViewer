@@ -144,7 +144,7 @@ namespace BinocularPhotoViewer
                     move = 0;
                 #endregion
 
-                #region LeftThumbstick Direction
+                #region LeftThumbstick Zooming
                 //ifLeftThumbstick has been moved up or down zoom in and out respectively
                 if (lastGamePadState.IsButtonUp(Buttons.LeftThumbstickUp) && currentState.IsButtonDown(Buttons.LeftThumbstickUp))
                     y_zoom = (int)Zoom.zoomOut;

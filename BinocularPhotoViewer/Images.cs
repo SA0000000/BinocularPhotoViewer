@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Security.Permissions;
 using System.Security;
+using System.Diagnostics;
 
 namespace BinocularPhotoViewer
 {
@@ -17,6 +18,7 @@ namespace BinocularPhotoViewer
        public DateTime endTime;
        public String timeTaken;       //end -start
        public String ImageCategory;
+       //public String stopWatchTime;
 
        public ImageInfo(String fname)
        {
@@ -24,6 +26,7 @@ namespace BinocularPhotoViewer
            startTime = DateTime.Now;
            endTime = DateTime.Now;
            timeTaken = (endTime - startTime).ToString();
+           //stopWatchTime = "";
            ImageCategory = "";
       }
     } ;
@@ -45,6 +48,10 @@ namespace BinocularPhotoViewer
         private int TaskTwoImageCount;      //number of task1 images
         private int TaskThreeImageCount;      //number of task1 images
         private String ImageCategory;       //whether training image or task1 image
+
+        //StopWatch components for time keeping
+       // Stopwatch stopWatch;
+        //bool watchStarted = false;
         
         //initialize components
         public Images(String s_num, String[] filelist,int training, int task1,int task2,int task3)
@@ -63,8 +70,12 @@ namespace BinocularPhotoViewer
            //initialize ImageInfo list
            myImageInfo = new ImageInfo[MAX];
            init(filelist);
+
+           //initialize stopwatch
+           //stopWatch = new Stopwatch();
         }
 
+        //This function initializes the list of images and adds supporting images
         void init(String[] filelist)
         {
             for (int i = 0, k = 0; i < MAX && k < imgNum; i++)
@@ -103,6 +114,13 @@ namespace BinocularPhotoViewer
         {
             String file = "";
             
+            ////start stopwatch if it isn't running
+            //if (!watchStarted)
+            //{
+            //    stopWatch = new Stopwatch();
+            //    stopWatch.Start();
+            //}
+
             if (imgCount == (MAX + 1))         //when the user is done in the end and we need to store stuff
             {
                 if (flag == end)  //to get the end time for the last image
@@ -161,7 +179,12 @@ namespace BinocularPhotoViewer
         {
             myImageInfo[i-1].endTime = DateTime.Now;
             myImageInfo[i-1].timeTaken = (myImageInfo[i-1].endTime - myImageInfo[i-1].startTime).ToString();
-            myImageInfo[i].startTime = DateTime.Now;    
+            myImageInfo[i].startTime = DateTime.Now; 
+   
+            ////use stopwatch to store time
+            //stopWatch.Stop();
+            //myImageInfo[i - 1].stopWatchTime = stopWatch.ElapsedMilliseconds.ToString();
+            //watchStarted = false;
         }
 
         //reset timing when user wants to go back to an image
@@ -193,14 +216,14 @@ namespace BinocularPhotoViewer
 
             StreamWriter sw = new StreamWriter(dir + "\\VC_Study_" + studyNumber + ".txt");
             String entry;
-            sw.WriteLine("Image filename\\tImage Category\\tStart Time\\t\\End Time\\t\\Total Time\\n");
+            sw.WriteLine("Image filename\tImage Category\tStart Time\tEnd Time\tTotal Time\n");
 
             //write all the entries for this study set
             for (int i = 0; i < MAX; i++)
             {
                 entry = myImageInfo[i].Filename + "\t" + myImageInfo[i].ImageCategory+ "\t"+ myImageInfo[i].startTime.ToString() + 
-                        "\t" + myImageInfo[i].endTime.ToString() + 
-                        "\t" + myImageInfo[i].timeTaken;
+                        "\t" + myImageInfo[i].endTime.ToString() +
+                        "\t" + myImageInfo[i].timeTaken;    // +"\t" + myImageInfo[i].stopWatchTime;
                 sw.WriteLine(entry);
             }
             sw.Close();

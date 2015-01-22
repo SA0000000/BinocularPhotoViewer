@@ -95,6 +95,8 @@ namespace BinocularPhotoViewer
             ImageNum = 0;
             txtNumTrainingImages.Text = "";
             txtNumTask1Images.Text = "";
+            txtNumTask2Images.Text = "";
+            txtNumTask3Images.Text = "";
             imgList.Items.Clear();
             int i = 0;
             while (i < MAX)
