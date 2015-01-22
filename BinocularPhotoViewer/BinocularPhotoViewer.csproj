@@ -125,12 +125,17 @@
     <Resource Include="j_s1_0.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="EndofTraining.png" />
+    <Resource Include="Task1.png" />
     <Resource Include="FirstImage.png" />
     <Resource Include="StartofTraining.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LastImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EndofTask1.png" />
+    <Resource Include="EndofTask2.png" />
+    <Resource Include="Task2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SharpDX.2.6.2\build\SharpDX.targets" Condition="Exists('..\packages\SharpDX.2.6.2\build\SharpDX.targets')" />

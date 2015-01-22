@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("lastimage.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("endoftask1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("endoftask2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("task2.png")]
 
 

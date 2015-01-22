@@ -44,8 +44,9 @@ namespace BinocularPhotoViewer
 
         //For zooming
         enum Zoom : int { zoomIn = 1, zoomOut = -1 };
-        int zoom = 0;
-        float zoomValue = 0.05f;
+        //int zoom = 0;
+        float zoomValue = 0.025f;
+        int x_zoom = 0, y_zoom = 0;
 
         //create variables that will store where the user set the first image and 
         //then will be used to display the other images at the same spatial window coordinates and state
@@ -56,7 +57,7 @@ namespace BinocularPhotoViewer
         //create an instance of Class Images to store and deal with all images
         Images images;
 
-        public Viewer(String studynum, String[] filelist,int training, int task1)
+        public Viewer(String studynum, String[] filelist,int training, int task1,int task2,int task3)
         {
             InitializeComponent();
             LeftCanvas.Visibility = Visibility.Visible;
@@ -79,7 +80,7 @@ namespace BinocularPhotoViewer
             img_zoomVal[1] = xformLeft.ScaleY + 0.15f * (-1);
            
             //init Images class object
-            images = new Images(studynum,filelist,training, task1);
+            images = new Images(studynum,filelist,training, task1,task2,task3);
 
             //set first image on the canvas
             leftImage.Source = rightImage.Source = new BitmapImage(new Uri(@"FirstImage.png", UriKind.RelativeOrAbsolute));
@@ -146,13 +147,17 @@ namespace BinocularPhotoViewer
                 #region LeftThumbstick Direction
                 //ifLeftThumbstick has been moved up or down zoom in and out respectively
                 if (lastGamePadState.IsButtonUp(Buttons.LeftThumbstickUp) && currentState.IsButtonDown(Buttons.LeftThumbstickUp))
-                {
-                    zoom = (int)Zoom.zoomOut;
-                }
-
+                    y_zoom = (int)Zoom.zoomOut;
                 else if (lastGamePadState.IsButtonUp(Buttons.LeftThumbstickDown) && currentState.IsButtonDown(Buttons.LeftThumbstickDown))
+                    y_zoom = (int)Zoom.zoomIn;
+                else if (lastGamePadState.IsButtonUp(Buttons.LeftThumbstickRight) && currentState.IsButtonDown(Buttons.LeftThumbstickRight))
+                    x_zoom = (int)Zoom.zoomIn;
+                else if (lastGamePadState.IsButtonUp(Buttons.LeftThumbstickLeft) && currentState.IsButtonDown(Buttons.LeftThumbstickLeft))
+                    x_zoom = (int)Zoom.zoomOut;
+                else
                 {
-                    zoom = (int)Zoom.zoomIn;
+                    x_zoom = 0;
+                    y_zoom = 0;
                 }
                 #endregion
 
@@ -179,7 +184,7 @@ namespace BinocularPhotoViewer
                 Double topPos = Convert.ToDouble(leftImage.GetValue(Canvas.TopProperty));
                 if(move != 0)
                     moveImage(LeftPos,topPos,leftImage);
-                if (zoom != 0)
+                if (x_zoom != 0 || y_zoom != 0)
                 {
                     zoomImage(LeftPos, topPos, leftImage);
                 }
@@ -198,7 +203,7 @@ namespace BinocularPhotoViewer
                 Double topPos = Convert.ToDouble(rightImage.GetValue(Canvas.TopProperty));
                 if (move != 0)
                     moveImage(LeftPos, topPos, rightImage);
-                if (zoom != 0)
+                if (x_zoom != 0 || y_zoom != 0)
                 {
                     zoomImage(LeftPos, topPos, rightImage);
                 }
@@ -253,10 +258,10 @@ namespace BinocularPhotoViewer
 
             //scale image and then redraw it at the previous position
             //only scale if scaling factor is greater than zero
-            if (transform.ScaleX + zoomValue * zoom > 0)
+            if (transform.ScaleX + zoomValue * x_zoom > 0 || transform.ScaleY + zoomValue * y_zoom > 0)
             {
-                transform.ScaleX += zoomValue * zoom;
-                transform.ScaleY += zoomValue * zoom;
+                transform.ScaleX += zoomValue * x_zoom;
+                transform.ScaleY += zoomValue * y_zoom;
                 img_zoomVal[0] = transform.ScaleX;
                 img_zoomVal[1] = transform.ScaleY;
             }
@@ -266,7 +271,8 @@ namespace BinocularPhotoViewer
             moveImage(LeftPos, topPos, image);
 
             //reset zoom to 0
-            zoom = 0;
+            x_zoom = 0;
+            y_zoom = 0;
         }
 
         //move to the next image

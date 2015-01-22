@@ -20,11 +20,13 @@ namespace BinocularPhotoViewer
     public partial class MainWindow : Window
     {
         private static int ImageNum = 0;
-        private const int MAX = 18;
+        private const int MAX = 40;
         private static String[] filenames;   //= new String[12];
         OpenFileDialog openFileDialog = new OpenFileDialog();
         private int NumTrainingImg = 0;
         private int NumTask1Img = 0;
+        private int NumTask2Img = 0;
+        private int NumTask3Img = 0;
        
         public MainWindow()
         {
@@ -113,7 +115,7 @@ namespace BinocularPhotoViewer
                 if (checkImageCount())
                 {
                     //if user has added images....then launch picture viewer
-                    Viewer myViewer = new Viewer(txtStudyNum.Text.Trim(),filenames,NumTrainingImg, NumTask1Img);
+                    Viewer myViewer = new Viewer(txtStudyNum.Text.Trim(), filenames, NumTrainingImg, NumTask1Img, NumTask2Img, NumTask3Img);
                     myViewer.Show();
                 }
             }
@@ -131,13 +133,19 @@ namespace BinocularPhotoViewer
                 MessageBox.Show("You forgot to Add the Number of Training Images!!!You forgot to Add the Study Number!!!");
             else if (String.IsNullOrEmpty(txtNumTask1Images.Text.Trim()))
                 MessageBox.Show("You forgot to Add the Study Number!!!");
-            else if (Int32.Parse(txtNumTrainingImages.Text) < 1 || Int32.Parse(txtNumTrainingImages.Text) > 7)
+            else if (Int32.Parse(txtNumTrainingImages.Text) < 1 || Int32.Parse(txtNumTrainingImages.Text) > 8)
                 MessageBox.Show("Max of 7 training images allowed!!!");
-            else if (Int32.Parse(txtNumTask1Images.Text) < 1 || Int32.Parse(txtNumTask1Images.Text) > 18)
-                MessageBox.Show("Enter a number between 1 and 11 for number of images in Task 1!!!");
+            else if (Int32.Parse(txtNumTask1Images.Text) < 1 || Int32.Parse(txtNumTask1Images.Text) > 12)
+                MessageBox.Show("Enter a number between 1 and 12 for number of images in Task 1!!!");
+            else if (Int32.Parse(txtNumTask2Images.Text) < 1 || Int32.Parse(txtNumTask2Images.Text) > 12)
+                MessageBox.Show("Enter a number between 1 and 12 for number of images in Task 2!!!");
+            else if (Int32.Parse(txtNumTask2Images.Text) < 1 || Int32.Parse(txtNumTask2Images.Text) > 12)
+                MessageBox.Show("Enter a number between 1 and 12 for number of images in Task 3!!!");
             else
             {
                 NumTask1Img = Int32.Parse(txtNumTask1Images.Text);
+                NumTask2Img = Int32.Parse(txtNumTask2Images.Text);
+                NumTask3Img = Int32.Parse(txtNumTask3Images.Text);
                 NumTrainingImg = Int32.Parse(txtNumTrainingImages.Text);
                 flag = true;
             }

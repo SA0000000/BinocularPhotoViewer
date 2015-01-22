@@ -1,8 +1,8 @@
 ﻿<Window x:Name="Viewer1" x:Class="BinocularPhotoViewer.Viewer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Viewer" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="zoomin.png">
-    <Grid>
+        Title="Viewer" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="zoomin.png" WindowState="Maximized" Width="1188.083" Height="733.248">
+    <Grid Background="#FF343333">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
